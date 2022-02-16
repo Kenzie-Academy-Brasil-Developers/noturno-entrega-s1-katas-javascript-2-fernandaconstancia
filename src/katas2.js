@@ -5,13 +5,13 @@ function add (a,b){
 }
 
 // descomente a linha seguinte para testar sua função
-console.assert(add(3, 5) === 8, 'A função add não está funcionando como esperado');
+console.assert(add(2, 4) === 6, 'A função add não está funcionando como esperado');
 
 // comece a criar a sua função multiply na linha abaixo
 
 function multiply(quantidade,multiplicando){
     let resultado = 0 
-    for (let contador = 1; contador <= quantidade; contador++){
+    for (let index = 1; index <= quantidade; index++){
       resultado = add(resultado,multiplicando)
     }
     return resultado
@@ -24,7 +24,7 @@ console.assert(multiply(4, 6) === 24, 'A função multiply não está funcionand
 
 function power(elevado,potencia){
     let resultado = 1 
-    for (let contador = 1; contador <= potencia; contador++){
+    for (let index = 1; index <= potencia; index++){
       resultado = multiply(resultado,elevado)
     }
     return resultado
@@ -37,8 +37,8 @@ console.assert(power(3, 4) === 81, 'A função power não está funcionando como
 
 function factorial(fatorial){
     let resultado = fatorial 
-    for (let contador = 1; contador < fatorial; contador++){
-      resultado = multiply(resultado,contador)
+    for (let index = 1; index < fatorial; index++){
+      resultado = multiply(resultado,index)
     }
     return resultado
 }
@@ -51,12 +51,23 @@ console.assert(factorial(5) === 120, 'A função factorial não está funcionand
 //  */
 // crie a função fibonacci
 
-function fibonacci(num) {
-    if(num < 1) return 0
-    if(num <= 2) return 1
-    return add(fibonacci(num - 1), fibonacci(num - 2))
-}
+// function fibonacci(num) {
+//     if(num < 1) return 0
+//     if(num <= 2) return 1
+//     return add(fibonacci(num - 1), fibonacci(num - 2))
+// }
 
+function fibonacci(num) {
+  let somando = 0;
+  let primeiro = 0;
+  let segundo = 1;
+  for(let index = 0; index < num; index++){
+    somando = add(primeiro, segundo);
+    primeiro = segundo;
+    segundo = somando;
+  }
+  return primeiro;
+}
 
 // descomente a linha seguinte para testar sua função
 console.assert(fibonacci(7) === 13, 'A função fibonacci não está funcionando como esperado');
